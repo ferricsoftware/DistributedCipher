@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCipher.Framework", "DistributedCipher.Framework\DistributedCipher.Framework.csproj", "{E195C356-7775-4E00-8D30-3B25DDAA03FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCipher.Test.Unit", "DistributedCipher.Test.Unit\DistributedCipher.Test.Unit.csproj", "{E14CCCC8-DDC7-48EE-874A-6487DE5D8D53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCipher.Common", "DistributedCipher.Common\DistributedCipher.Common.csproj", "{3C7F24FE-0293-4B11-AB27-43969B5C57AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCipher.Configurator", "DistributedCipher.Configurator\DistributedCipher.Configurator.csproj", "{1B09C0F2-46BD-4C75-94B1-AEA2D39CAF11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCipher.Sandbox", "DistributedCipher.Sandbox\DistributedCipher.Sandbox.csproj", "{E234C005-CFB7-4F38-91C2-BDD65F13B41C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCipher.Test.Integration", "DistributedCipher.Test.Integration\DistributedCipher.Test.Integration.csproj", "{E523743F-A80A-4556-9CE7-2E8D339C4C22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCipher.ByteSetRepository.Xml", "DistributedCipher.ByteSetRepository.Xml\DistributedCipher.ByteSetRepository.Xml.csproj", "{5EC0B59F-7A53-4358-A8DD-FEC9BDFEB11B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCipher.ByteSetRepository.Memory", "DistributedCipher.ByteSetRepository.Memory\DistributedCipher.ByteSetRepository.Memory.csproj", "{23D6E1C3-169E-443D-8EF6-F992C2F1FEC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCipher.FerricNodeRepository.Xml", "DistributedCipher.FerricNodeRepository.Xml\DistributedCipher.FerricNodeRepository.Xml.csproj", "{23FF7C18-3A4C-40F4-8082-676037EE61A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCipher.CaesarShift", "DistributedCipher.CaesarShift\DistributedCipher.CaesarShift.csproj", "{6C56F03C-E390-47C8-8292-12DBE0E2647E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E195C356-7775-4E00-8D30-3B25DDAA03FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E195C356-7775-4E00-8D30-3B25DDAA03FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E195C356-7775-4E00-8D30-3B25DDAA03FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E195C356-7775-4E00-8D30-3B25DDAA03FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E14CCCC8-DDC7-48EE-874A-6487DE5D8D53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E14CCCC8-DDC7-48EE-874A-6487DE5D8D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E14CCCC8-DDC7-48EE-874A-6487DE5D8D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E14CCCC8-DDC7-48EE-874A-6487DE5D8D53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C7F24FE-0293-4B11-AB27-43969B5C57AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C7F24FE-0293-4B11-AB27-43969B5C57AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C7F24FE-0293-4B11-AB27-43969B5C57AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C7F24FE-0293-4B11-AB27-43969B5C57AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B09C0F2-46BD-4C75-94B1-AEA2D39CAF11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B09C0F2-46BD-4C75-94B1-AEA2D39CAF11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B09C0F2-46BD-4C75-94B1-AEA2D39CAF11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B09C0F2-46BD-4C75-94B1-AEA2D39CAF11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E234C005-CFB7-4F38-91C2-BDD65F13B41C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E234C005-CFB7-4F38-91C2-BDD65F13B41C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E234C005-CFB7-4F38-91C2-BDD65F13B41C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E234C005-CFB7-4F38-91C2-BDD65F13B41C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E523743F-A80A-4556-9CE7-2E8D339C4C22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E523743F-A80A-4556-9CE7-2E8D339C4C22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E523743F-A80A-4556-9CE7-2E8D339C4C22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E523743F-A80A-4556-9CE7-2E8D339C4C22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EC0B59F-7A53-4358-A8DD-FEC9BDFEB11B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EC0B59F-7A53-4358-A8DD-FEC9BDFEB11B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EC0B59F-7A53-4358-A8DD-FEC9BDFEB11B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EC0B59F-7A53-4358-A8DD-FEC9BDFEB11B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23D6E1C3-169E-443D-8EF6-F992C2F1FEC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D6E1C3-169E-443D-8EF6-F992C2F1FEC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D6E1C3-169E-443D-8EF6-F992C2F1FEC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D6E1C3-169E-443D-8EF6-F992C2F1FEC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23FF7C18-3A4C-40F4-8082-676037EE61A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23FF7C18-3A4C-40F4-8082-676037EE61A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23FF7C18-3A4C-40F4-8082-676037EE61A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23FF7C18-3A4C-40F4-8082-676037EE61A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C56F03C-E390-47C8-8292-12DBE0E2647E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C56F03C-E390-47C8-8292-12DBE0E2647E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C56F03C-E390-47C8-8292-12DBE0E2647E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C56F03C-E390-47C8-8292-12DBE0E2647E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

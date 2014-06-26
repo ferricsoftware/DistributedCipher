@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E14CCCC8-DDC7-48EE-874A-6487DE5D8D53}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DistributedCipher.Test.Unit</RootNamespace>
+    <AssemblyName>DistributedCipher.Test.Unit</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\..\..\..\..\..\Drops\Rhino.Mocks\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="Common\CipherTest_Length_Of_One_EncryptedLength_Of_One.cs" />
+    <Compile Include="Common\CipherTest_Length_Of_Three_EncryptedLength_Of_Three.cs" />
+    <Compile Include="Common\CipherTest_Length_Of_One_EncryptedLength_Of_Two.cs" />
+    <Compile Include="Common\CipherTest_Length_Of_Three_EncryptedLength_Of_Two.cs" />
+    <Compile Include="Common\ByteMapTest.cs" />
+    <Compile Include="Common\ByteIndexTest.cs" />
+    <Compile Include="Common\ByteSetMemoryRepositoryTest.cs" />
+    <Compile Include="Common\ScramblerTest_With_Three_Lower_Limit_Indexes.cs" />
+    <Compile Include="Common\ScramblerTest_With_Negative_Zero_Index.cs" />
+    <Compile Include="Common\ScramblerTest_With_Negative_Indexes.cs" />
+    <Compile Include="Common\ScramblerTest_With_Many_Indexes.cs" />
+    <Compile Include="Common\ScramblerTest_With_Three_Upper_Limit_Indexes.cs" />
+    <Compile Include="Common\DistributedCipherTest.cs" />
+    <Compile Include="Common\DistributedCipherTest_As_Ferric_Node.cs" />
+    <Compile Include="Common\HeaderBaseTest.cs" />
+    <Compile Include="Common\HeaderTest_Twenty_Ciphers_PreferredLength_Six.cs" />
+    <Compile Include="Common\HeaderTest_Twenty_Ciphers_PreferredLength_Three.cs" />
+    <Compile Include="Common\HeaderTest_Thirty_Ciphers_PreferredLength_Three.cs" />
+    <Compile Include="Common\HeaderTest_ThirtyOne_Ciphers_PreferredLength_Three.cs" />
+    <Compile Include="Common\RandomDataInsertsTest.cs" />
+    <Compile Include="Common\ScramblerTest_As_Ferric_Node.cs" />
+    <Compile Include="Common\ScramblerTest_With_One_Index.cs" />
+    <Compile Include="IFerricNodeRepositoryTest.cs" />
+    <Compile Include="IByteMapTest.cs" />
+    <Compile Include="IByteIndexTest.cs" />
+    <Compile Include="IByteSetRepositoryTest.cs" />
+    <Compile Include="IDistributedCipherTest.cs" />
+    <Compile Include="IFerricNodeTest.cs" />
+    <Compile Include="IHeaderTest.cs" />
+    <Compile Include="IRandomDataInsertsTest.cs" />
+    <Compile Include="ICipherTest.cs" />
+    <Compile Include="IScramblerTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ICipherTypeTest.cs" />
+    <Compile Include="Common\PredefinedReplacementMapTest.cs" />
+    <Compile Include="Common\PartialReplacementMapTest.cs" />
+    <Compile Include="Common\ReplacementMapTest.cs" />
+    <Compile Include="Extensions\CaesarShiftTest.cs" />
+    <Compile Include="StubFactories\StubByteSetFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DistributedCipher.ByteSetRepository.Memory\DistributedCipher.ByteSetRepository.Memory.csproj">
+      <Project>{23d6e1c3-169e-443d-8ef6-f992c2f1fec5}</Project>
+      <Name>DistributedCipher.ByteSetRepository.Memory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DistributedCipher.ByteSetRepository.Xml\DistributedCipher.ByteSetRepository.Xml.csproj">
+      <Project>{5ec0b59f-7a53-4358-a8dd-fec9bdfeb11b}</Project>
+      <Name>DistributedCipher.ByteSetRepository.Xml</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DistributedCipher.CaesarShift\DistributedCipher.CaesarShift.csproj">
+      <Project>{6c56f03c-e390-47c8-8292-12dbe0e2647e}</Project>
+      <Name>DistributedCipher.CaesarShift</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DistributedCipher.Common\DistributedCipher.Common.csproj">
+      <Project>{3c7f24fe-0293-4b11-ab27-43969b5c57ab}</Project>
+      <Name>DistributedCipher.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DistributedCipher.Framework\DistributedCipher.Framework.csproj">
+      <Project>{e195c356-7775-4e00-8d30-3b25ddaa03fc}</Project>
+      <Name>DistributedCipher.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
