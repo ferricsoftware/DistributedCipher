@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCipher.FerricNod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCipher.CaesarShift", "DistributedCipher.CaesarShift\DistributedCipher.CaesarShift.csproj", "{6C56F03C-E390-47C8-8292-12DBE0E2647E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCipher.WebServices.Server", "DistributedCipher.WebServices.Server\DistributedCipher.WebServices.Server.csproj", "{E263F805-D981-4BE0-86F5-3B06FFCB0EF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedCipher.WebServices.Client", "DistributedCipher.WebServices.Client\DistributedCipher.WebServices.Client.csproj", "{00416B00-1D67-4F16-80C9-AA3043B1A478}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +71,14 @@ Global
 		{6C56F03C-E390-47C8-8292-12DBE0E2647E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C56F03C-E390-47C8-8292-12DBE0E2647E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C56F03C-E390-47C8-8292-12DBE0E2647E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E263F805-D981-4BE0-86F5-3B06FFCB0EF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E263F805-D981-4BE0-86F5-3B06FFCB0EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E263F805-D981-4BE0-86F5-3B06FFCB0EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E263F805-D981-4BE0-86F5-3B06FFCB0EF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00416B00-1D67-4F16-80C9-AA3043B1A478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00416B00-1D67-4F16-80C9-AA3043B1A478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00416B00-1D67-4F16-80C9-AA3043B1A478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00416B00-1D67-4F16-80C9-AA3043B1A478}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
