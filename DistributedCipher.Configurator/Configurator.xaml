@@ -3,18 +3,20 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Local="clr-namespace:DistributedCipher.Configurator"
     xmlns:ViewModels="clr-namespace:DistributedCipher.Configurator.ViewModels"
-    x:Class="DistributedCipher.Configurator.MainWindow"
-    Title="Distributed Cipher Configurator" WindowState="Maximized">
-	<Window.Resources>
+    x:Class="DistributedCipher.Configurator.ConfiguratorWindow"
+    Title="Distributed Cipher Configurator"
+    Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}"
+    DataContext="ConfiguratorViewModel">
+    <Window.Resources>
 		<DataTemplate x:Key="ICipherTemplate">
-			<StackPanel Orientation="Vertical">
-				<TextBlock Text="{Binding EncryptedLength, Mode=OneWay}" />
-				<TextBlock Text="{Binding Length, Mode=OneWay}" />
-				<TextBlock Text="{Binding CipherType.Name, Mode=OneWay}" />
+			<StackPanel Orientation="Vertical" Width="50">
+                <TextBlock Text="{Binding EncryptedLength, Mode=OneWay}" Background="Beige" />
+                <TextBlock Text="{Binding Length, Mode=TwoWay}" Background="CadetBlue" />
+                <TextBlock Text="{Binding CipherType.Name, Mode=OneWay}" Background="DarkGoldenrod" />
 			</StackPanel>
 		</DataTemplate>
 	</Window.Resources>
-	<DockPanel ScrollViewer.VerticalScrollBarVisibility="Disabled">
+    <DockPanel ScrollViewer.VerticalScrollBarVisibility="Disabled">
 		<Menu  DockPanel.Dock="Top" Height="18">
 			<Menu.Background>
 				<LinearGradientBrush EndPoint="1,1" StartPoint="1,1">
@@ -36,34 +38,26 @@
 					<GradientStop Color="#FF219C9C" Offset="1"/>
 				</LinearGradientBrush>
 			</StatusBar.Background>
-		</StatusBar>
-		<DockPanel Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
-			<DockPanel.DataContext>
-				<ViewModels:ConfiguratorViewModel/>
-			</DockPanel.DataContext>
-			<Grid DockPanel.Dock="Bottom" Height="80">
-				<Grid.RowDefinitions>
-					<RowDefinition Height="1*"/>
-					<RowDefinition Height="1*"/>
-					<RowDefinition Height="1*"/>
-					<RowDefinition Height="1*"/>
-					<RowDefinition Height="1*"/>
-				</Grid.RowDefinitions>
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="80"/>
-					<ColumnDefinition Width="*"/>
-				</Grid.ColumnDefinitions>
-				<TextBlock Text="Index" />
-				<TextBlock Grid.Row="1" Text="Original"/>
-				<TextBlock Grid.Row="2" Text="Cipher Type"/>
-				<TextBlock Grid.Row="3" Text="Encrypted"/>
-				<ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden" Grid.RowSpan="5" Grid.Column="1">
-					<StackPanel>
-						<Local:SingleCipherControl Width="80" Loaded="SingleCipherControl_Loaded"/>
-					</StackPanel>
-				</ScrollViewer>
-			</Grid>
-			<ListBox ItemTemplate="{DynamicResource ICipherTemplate}" ItemsSource="{Binding Ciphers}" />
-		</DockPanel>
+        </StatusBar>
+        <Grid DockPanel.Dock="Bottom" Height="80">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Index" />
+            <TextBlock Grid.Row="1" Text="Original"/>
+            <TextBlock Grid.Row="2" Text="Cipher Type"/>
+            <TextBlock Grid.Row="3" Text="Encrypted"/>
+            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden" Grid.RowSpan="5" Grid.Column="1">
+                <ItemsControl ItemTemplate="{DynamicResource ICipherTemplate}" ItemsSource="{Binding Ciphers}" />
+            </ScrollViewer>
+        </Grid>
 	</DockPanel>
 </Window>

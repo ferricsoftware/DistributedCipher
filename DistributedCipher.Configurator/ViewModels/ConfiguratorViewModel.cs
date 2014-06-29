@@ -17,6 +17,7 @@ namespace DistributedCipher.Configurator.ViewModels
         {
             this.ciphers = new ObservableCollection<ICipher>();
             this.ciphers.Add(new Cipher(new ReplacementMap(new ByteMap(new List<byte>()))));
+            this.ciphers.Add(new Cipher(new ReplacementMap(new ByteMap(new List<byte>()))));
         }
     }
 }
