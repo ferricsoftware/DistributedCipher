@@ -5,9 +5,10 @@ using System.IO;
 using System.Xml;
 
 using DistributedCipher.CaesarShift;
+using DistributedCipher.Common;
 using DistributedCipher.Framework;
 
-namespace DistributedCipher.Common
+namespace DistributedCipher.FerricNodeRepository.Xml
 {
     public class FerricNodeXmlRepository : IFerricNodeRepository
     {
@@ -241,7 +242,7 @@ namespace DistributedCipher.Common
 
         protected XmlElement CreateDistributedCipherElement(IDistributedCipher distributedCipher, XmlDocument xmlDocument, XmlElement distributedCipherElement)
         {
-            if (!(distributedCipher is DistributedCipher))
+            if (!(distributedCipher is DistributedCipher.Common.DistributedCipher))
             {
                 distributedCipherElement.Attributes.Append(CreateAttribute(xmlDocument, "Assembly", GetAssemblyName(distributedCipher)));
                 distributedCipherElement.Attributes.Append(CreateAttribute(xmlDocument, "Type", GetTypeName(distributedCipher)));
@@ -483,7 +484,7 @@ namespace DistributedCipher.Common
                     header = GenerateHeader(childElement);
             }
 
-            return new DistributedCipher(id, this.byteSetRepository, header, ciphers, child, FerricHelper.Random);
+            return new DistributedCipher.Common.DistributedCipher(id, this.byteSetRepository, header, ciphers, child, FerricHelper.Random);
         }
 
         protected IList<int> GenerateIndexList(XmlElement parentElement)

@@ -5,6 +5,7 @@ using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using DistributedCipher.Common;
+using DistributedCipher.FerricNodeRepository.Xml;
 using DistributedCipher.Framework;
 
 namespace DistributedCipher.Test.Integration

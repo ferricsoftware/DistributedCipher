@@ -19,9 +19,7 @@ namespace DistributedCipher.WebServices.Server
             string fileName = Application["XmlRepositoryFileName"].ToString();
             IXmlFactory xmlFactory = new XmlFactory();
 
-            IByteSetRepository backupRepository = new ByteSetXmlRepository(fileName, byteSetFactory, xmlFactory);
-
-            Global.byteSetRepository = new ByteSetMemoryRepository(byteSetFactory, backupRepository);
+            Global.byteSetRepository = new ByteSetMemoryRepository();
         }
 
         protected void Session_Start(object sender, EventArgs e)

@@ -42,6 +42,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Expression.Blend.Sdk.1.0.2\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -61,12 +64,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DropBehavior.cs" />
+    <Compile Include="IDropable.cs" />
+    <Compile Include="DragBehavior.cs" />
+    <Compile Include="IDragable.cs" />
+    <Compile Include="Models\NameModel.cs" />
     <Compile Include="SingleCipherControl.xaml.cs">
       <DependentUpon>SingleCipherControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\BytesViewModel.cs" />
-    <Compile Include="ViewModels\ByteManagersViewModel.cs" />
+    <Compile Include="ViewModels\ByteViewModel.cs" />
     <Compile Include="ViewModels\ConfiguratorViewModel.cs" />
+    <Compile Include="ViewModels\ByteIndexViewModel.cs" />
+    <Compile Include="ViewModels\ByteMapViewModel.cs" />
+    <Compile Include="ViewModels\ByteSetViewModel.cs" />
     <Page Include="Configurator.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -106,6 +116,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

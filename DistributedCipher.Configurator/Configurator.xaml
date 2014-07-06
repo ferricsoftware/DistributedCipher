@@ -1,21 +1,35 @@
 ﻿<Window
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:Local="clr-namespace:DistributedCipher.Configurator"
     xmlns:ViewModels="clr-namespace:DistributedCipher.Configurator.ViewModels"
     x:Class="DistributedCipher.Configurator.ConfiguratorWindow"
     Title="Distributed Cipher Configurator"
-    Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}"
-    DataContext="ConfiguratorViewModel">
+    Background="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}">
+    <Window.DataContext>
+        <ViewModels:ConfiguratorViewModel />
+    </Window.DataContext>
     <Window.Resources>
-		<DataTemplate x:Key="ICipherTemplate">
+        <DataTemplate x:Key="ByteTemplate">
+            <TextBlock Text="{Binding Byte, Mode=OneWay}">
+                <i:Interaction.Behaviors>
+                    <Local:DragBehavior />
+                    <Local:DropBehavior />
+                </i:Interaction.Behaviors>
+            </TextBlock>
+        </DataTemplate>
+        <DataTemplate x:Key="ICipherTemplate">
 			<StackPanel Orientation="Vertical" Width="50">
-                <TextBlock Text="{Binding EncryptedLength, Mode=OneWay}" Background="Beige" />
-                <TextBlock Text="{Binding Length, Mode=TwoWay}" Background="CadetBlue" />
-                <TextBlock Text="{Binding CipherType.Name, Mode=OneWay}" Background="DarkGoldenrod" />
+                <TextBlock Text="{Binding EncryptedLength, Mode=OneWay}" />
+                <TextBlock Text="{Binding Length, Mode=OneWay}" />
+                <TextBlock Text="{Binding CipherType.Name, Mode=OneWay}" />
 			</StackPanel>
-		</DataTemplate>
-	</Window.Resources>
+        </DataTemplate>
+        <DataTemplate x:Key="NameListTemplate">
+                <TextBlock Text="{Binding Name, Mode=OneWay}" />
+        </DataTemplate>
+    </Window.Resources>
     <DockPanel ScrollViewer.VerticalScrollBarVisibility="Disabled">
 		<Menu  DockPanel.Dock="Top" Height="18">
 			<Menu.Background>
@@ -39,25 +53,47 @@
 				</LinearGradientBrush>
 			</StatusBar.Background>
         </StatusBar>
-        <Grid DockPanel.Dock="Bottom" Height="80">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="Index" />
-            <TextBlock Grid.Row="1" Text="Original"/>
-            <TextBlock Grid.Row="2" Text="Cipher Type"/>
-            <TextBlock Grid.Row="3" Text="Encrypted"/>
-            <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden" Grid.RowSpan="5" Grid.Column="1">
-                <ItemsControl ItemTemplate="{DynamicResource ICipherTemplate}" ItemsSource="{Binding Ciphers}" />
-            </ScrollViewer>
-        </Grid>
+        <TabControl DockPanel.Dock="Top">
+            <TabItem Header="Ferric Nodes">
+                <Grid DockPanel.Dock="Bottom" Height="80">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Index" />
+                    <TextBlock Grid.Row="1" Text="Original"/>
+                    <TextBlock Grid.Row="2" Text="Cipher Type"/>
+                    <TextBlock Grid.Row="3" Text="Encrypted"/>
+                    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden" Grid.RowSpan="5" Grid.Column="1">
+                        <ItemsControl ItemTemplate="{DynamicResource ICipherTemplate}" ItemsSource="{Binding Ciphers}" />
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Byte Indexes">
+                <TabItem.DataContext>
+                    <ViewModels:ByteIndexViewModel />
+                </TabItem.DataContext>
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Left" Orientation="Vertical">
+                        <ItemsControl ItemTemplate="{DynamicResource NameListTemplate}" ItemsSource="{Binding Names}" />
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Right" Orientation="Vertical">
+                        <ItemsControl ItemTemplate="{DynamicResource ByteListTemplate}" ItemsSource="{Binding RemainingBytes}" />
+                    </StackPanel>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Byte Maps">
+                <TabItem.DataContext>
+                    <ViewModels:ByteMapViewModel />
+                </TabItem.DataContext>
+            </TabItem>
+        </TabControl>
 	</DockPanel>
 </Window>

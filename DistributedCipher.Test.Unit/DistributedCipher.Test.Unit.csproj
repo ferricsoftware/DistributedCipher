@@ -61,7 +61,7 @@
     <Compile Include="Common\CipherTest_Length_Of_Three_EncryptedLength_Of_Two.cs" />
     <Compile Include="Common\ByteMapTest.cs" />
     <Compile Include="Common\ByteIndexTest.cs" />
-    <Compile Include="Common\ByteSetMemoryRepositoryTest.cs" />
+    <Compile Include="Extensions\ByteSetMemoryRepositoryTest.cs" />
     <Compile Include="Common\ScramblerTest_With_Three_Lower_Limit_Indexes.cs" />
     <Compile Include="Common\ScramblerTest_With_Negative_Zero_Index.cs" />
     <Compile Include="Common\ScramblerTest_With_Negative_Indexes.cs" />

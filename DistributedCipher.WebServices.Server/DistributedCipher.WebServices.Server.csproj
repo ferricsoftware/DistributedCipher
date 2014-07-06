@@ -58,12 +58,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ByteSets.asmx" />
+    <Content Include="FerricNodes.asmx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ByteSets.asmx.cs">
       <DependentUpon>ByteSets.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FerricNodes.asmx.cs">
+      <DependentUpon>FerricNodes.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Global.asax.cs">
@@ -80,6 +85,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DistributedCipher.ByteSetRepository.Cache\DistributedCipher.ByteSetRepository.Cache.csproj">
+      <Project>{d3a56459-fb73-4092-9314-a4b0190d8979}</Project>
+      <Name>DistributedCipher.ByteSetRepository.Cache</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DistributedCipher.ByteSetRepository.Memory\DistributedCipher.ByteSetRepository.Memory.csproj">
       <Project>{23d6e1c3-169e-443d-8ef6-f992c2f1fec5}</Project>
       <Name>DistributedCipher.ByteSetRepository.Memory</Name>
@@ -91,6 +100,18 @@
     <ProjectReference Include="..\DistributedCipher.Common\DistributedCipher.Common.csproj">
       <Project>{3c7f24fe-0293-4b11-ab27-43969b5c57ab}</Project>
       <Name>DistributedCipher.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DistributedCipher.FerricNodeRepository.Cache\DistributedCipher.FerricNodeRepository.Cache.csproj">
+      <Project>{faa50618-da19-4ef1-9740-c3c2e60695fd}</Project>
+      <Name>DistributedCipher.FerricNodeRepository.Cache</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DistributedCipher.FerricNodeRepository.Memory\DistributedCipher.FerricNodeRepository.Memory.csproj">
+      <Project>{e6ad9530-5351-4ebb-aa43-f81787cd7053}</Project>
+      <Name>DistributedCipher.FerricNodeRepository.Memory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DistributedCipher.FerricNodeRepository.Xml\DistributedCipher.FerricNodeRepository.Xml.csproj">
+      <Project>{23ff7c18-3a4c-40f4-8082-676037ee61a5}</Project>
+      <Name>DistributedCipher.FerricNodeRepository.Xml</Name>
     </ProjectReference>
     <ProjectReference Include="..\DistributedCipher.Framework\DistributedCipher.Framework.csproj">
       <Project>{e195c356-7775-4e00-8d30-3b25ddaa03fc}</Project>

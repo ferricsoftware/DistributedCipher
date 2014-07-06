@@ -6,7 +6,7 @@ using DistributedCipher.ByteSetRepository.Memory;
 using DistributedCipher.Framework;
 using DistributedCipher.Test.Unit.StubFactories;
 
-namespace DistributedCipher.Test.Unit.Common
+namespace DistributedCipher.Test.Unit.Extensions
 {
     [TestClass]
     public class ByteSetMemoryRepositoryTest : IByteSetRepositoryTest
@@ -14,9 +14,7 @@ namespace DistributedCipher.Test.Unit.Common
         [TestInitialize()]
         public void TestInitialize()
         {
-            IByteSetFactory byteSetFactory = new StubByteSetFactory();
-
-            this.byteSetRepositoryUnderTest = new ByteSetMemoryRepository(byteSetFactory);
+            this.byteSetRepositoryUnderTest = new ByteSetMemoryRepository();
         }
     }
 }

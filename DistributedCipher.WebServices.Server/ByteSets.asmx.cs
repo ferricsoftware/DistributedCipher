@@ -1,10 +1,12 @@
-﻿using DistributedCipher.ByteSetRepository.Memory;
+﻿using System;
+using System.ComponentModel;
+using System.Web.Services;
+
+using DistributedCipher.ByteSetRepository.Cache;
+using DistributedCipher.ByteSetRepository.Memory;
 using DistributedCipher.ByteSetRepository.Xml;
 using DistributedCipher.Common;
 using DistributedCipher.Framework;
-using System;
-using System.ComponentModel;
-using System.Web.Services;
 
 namespace DistributedCipher.WebServices
 {
@@ -20,10 +22,11 @@ namespace DistributedCipher.WebServices
             IByteSetFactory byteSetFactory = new ByteSetFactory();
             string fileName = Application["XmlRepositoryFileName"].ToString();
             IXmlFactory xmlFactory = new XmlFactory();
-            
-            IByteSetRepository backupRepository = new ByteSetXmlRepository(fileName, byteSetFactory, xmlFactory);
 
-            this.byteSetRepository = new ByteSetMemoryRepository(byteSetFactory, backupRepository);
+            IByteSetRepository memoryRepository = new ByteSetMemoryRepository();
+            IByteSetRepository xmlRepository = new ByteSetXmlRepository(fileName, byteSetFactory, xmlFactory);
+
+            this.byteSetRepository = new ByteSetCacheRepository(xmlRepository, memoryRepository);
         }
 
         [WebMethod]

@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using DistributedCipher.ByteSetRepository.Xml;
 using DistributedCipher.Common;
+using DistributedCipher.FerricNodeRepository.Xml;
 using DistributedCipher.Framework;
 using DistributedCipher.Test.Unit;
 

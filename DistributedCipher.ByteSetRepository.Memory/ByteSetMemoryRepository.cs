@@ -8,20 +8,10 @@ namespace DistributedCipher.ByteSetRepository.Memory
 {
     public class ByteSetMemoryRepository : IByteSetRepository
     {
-        protected IByteSetRepository backupRepository;
-        protected IByteSetFactory byteSetFactory;
         protected Dictionary<Guid, IByteSet> byteSets;
 
-        public ByteSetMemoryRepository(IByteSetFactory byteSetFactory)
-            : this(byteSetFactory, null)
+        public ByteSetMemoryRepository()
         {
-        }
-
-        public ByteSetMemoryRepository(IByteSetFactory byteSetFactory, IByteSetRepository backupRepository)
-        {
-            this.backupRepository = backupRepository;
-            this.byteSetFactory = byteSetFactory;
-
             this.byteSets = new Dictionary<Guid, IByteSet>();
         }
 
@@ -30,13 +20,10 @@ namespace DistributedCipher.ByteSetRepository.Memory
             if (byteSet == null)
                 throw new ArgumentNullException("Byte Set");
 
-            if (!this.byteSets.ContainsKey(byteSet.ID) && (this.backupRepository == null || this.backupRepository.Exists(byteSet) == Guid.Empty))
+            if (!this.byteSets.ContainsKey(byteSet.ID))
                 throw new KeyNotFoundException(byteSet.ID.ToString());
 
             this.byteSets.Remove(byteSet.ID);
-
-            if (this.backupRepository != null)
-                this.backupRepository.Delete(byteSet);
         }
 
         public Guid Exists(IByteSet byteSet)
@@ -46,17 +33,6 @@ namespace DistributedCipher.ByteSetRepository.Memory
 
             if (this.byteSets.ContainsKey(byteSet.ID))
                 return byteSet.ID;
-
-            if (this.backupRepository != null)
-            {
-                Guid id = this.backupRepository.Exists(byteSet);
-                if (id != Guid.Empty)
-                {
-                    Save(this.backupRepository.Find(id));
-
-                    return id;
-                }
-            }
 
             foreach (Guid key in this.byteSets.Keys)
             {
@@ -119,17 +95,6 @@ namespace DistributedCipher.ByteSetRepository.Memory
             if (this.byteSets.ContainsKey(id))
                 return this.byteSets[id];
 
-            if (this.backupRepository != null)
-            {
-                IByteSet byteSet = this.backupRepository.Find(id);
-                if (byteSet != null)
-                {
-                    Save(byteSet);
-
-                    return byteSet;
-                }
-            }
-
             return null;
         }
 
@@ -138,13 +103,10 @@ namespace DistributedCipher.ByteSetRepository.Memory
             if (byteSet == null)
                 throw new ArgumentNullException("Byte Set");
 
-            if (Exists(byteSet) != Guid.Empty && (this.backupRepository == null || this.backupRepository.Exists(byteSet) != Guid.Empty))
+            if (this.byteSets.ContainsKey(byteSet.ID))
                 throw new DuplicateKeyException(byteSet.ID);
 
             this.byteSets[byteSet.ID] = byteSet;
-
-            if (this.backupRepository != null)
-                this.backupRepository.Save(byteSet);
         }
     }
 }
